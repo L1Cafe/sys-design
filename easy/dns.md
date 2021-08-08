@@ -34,6 +34,56 @@ Finally, with the FQDN resolved, the OS' preferred DNS server returns the inform
 
 ## A close look at a DNS packet
 
+There are two kinds of DNS packets: Questions (queries) and answers (responses). DNS is a UDP-based protocol, servers are available to accept DNS queries on the well-known port 53/UDP.
+
+### Question packet
+
+```
+                                    1  1  1  1  1  1
+      0  1  2  3  4  5  6  7  8  9  0  1  2  3  4  5
+    +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+    |                                               |
+    /                     QNAME                     /
+    /                                               /
+    +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+    |                     QTYPE                     |
+    +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+    |                     QCLASS                    |
+    +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+```
+
+The question packet contains the domain name (for example `www.apple.com`), the type of query (more information below), and the class of the query. Typically "Internet addresses".
+
+### Answer packet
+
+```
+                                    1  1  1  1  1  1
+      0  1  2  3  4  5  6  7  8  9  0  1  2  3  4  5
+    +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+    |                                               |
+    /                                               /
+    /                      NAME                     /
+    |                                               |
+    +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+    |                      TYPE                     |
+    +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+    |                     CLASS                     |
+    +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+    |                      TTL                      |
+    |                                               |
+    +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+    |                   RDLENGTH                    |
+    +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--|
+    /                     RDATA                     /
+    /                                               /
+    +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+```
+
+The answer contains the domain name used in the question, the type and class again, the TTL which specifies the maximum time in seconds this record should be cached for, the length for `RDATA`, and, finally, `RDATA` is the answer to the initial query. The format of `RDATA` depends on the type of resource requested.
+
+
+## DNS record types
+
 ## DNSSEC
 
 When DNS was introduced, in ARPANET, the entire network was considered trustworthy. Once the Internet started expanding internationally, network engineers realised it was easy to carry out high-impact attacks against DNS such as DNS spoofing (more below). Because the Internet was growing at a fast pace and businesses as well as Internet users wanted a higher degree of security, DNSSEC was introduced to facilitate and standarise an additional layer of cryptographic authentication on top of traditional DNS.
