@@ -10,11 +10,17 @@ Originally, only seven TLDs existed. As the Internet expanded internationally, c
 
 ## How DNS queries work
 
+Most Internet users don't connect directly to root servers in order to retrieve records. Not only this would be slow, but also nearly impossible to scale at the size of the modern Internet.
+
 ## A close look at a DNS packet
 
 ## DNSSEC
 
-When DNS was introduced, in ARPANET, the entire network was considered trustworthy. Once the Internet started expanding internationally, network engineers realised it was easy to carry out high-impact attacks against DNS such as DNS spoofing (more below). Because the Internet was growing at a fast pace and businesses as well as Internet users wanted a higher degree of security, DNSSEC was introduced to facilitate and standarise an additional layer of cryptographic authentication on top of traditional DNS. Note that DNS does not introduce encryption, it only provides integrity: that is, a DNS client can verify if the data was tampered with by a malicious third-party upon receiving a DNS request, but it doesn't protect this client from eavesdropping.
+When DNS was introduced, in ARPANET, the entire network was considered trustworthy. Once the Internet started expanding internationally, network engineers realised it was easy to carry out high-impact attacks against DNS such as DNS spoofing (more below). Because the Internet was growing at a fast pace and businesses as well as Internet users wanted a higher degree of security, DNSSEC was introduced to facilitate and standarise an additional layer of cryptographic authentication on top of traditional DNS.
+
+Note that DNS does not introduce encryption, it only provides integrity: that is, a DNS client can verify if the data was tampered with by a malicious third-party upon receiving a DNS request, but it doesn't protect this client from eavesdropping.
+
+When a DNSSEC-secured domain is queried, every response to a DNS lookup will contain a cryptographic signature of the resource requested, along with the resource itself. To verify the signature, it is enough to find the public key published through a DNSKEY record.
 
 ## DNS spoofing
 
