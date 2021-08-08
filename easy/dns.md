@@ -1,6 +1,6 @@
 # Describe DNS
 
-DNS stands for Domain Name System. It is a distributed database that allows the resolution of human-readable hostnamesinto IP addresses, but it can have other targets, such as other hostnames.
+DNS stands for Domain Name System. It is a distributed database that allows the resolution of human-readable hostnames into IP addresses, but it can have other targets, such as other hostnames.
 
 ## How DNS is organised
 
