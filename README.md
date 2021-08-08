@@ -13,6 +13,7 @@ System design notes.
 - [Explain recursion in programming](easy/recursion.md)
 - [Explain the C programming language](easy/c.md)
 - [Explain the OSI model](easy/osi.md)
+- [Explain Public Key Infrastructure)(easy/pki.md)
 
 ## Medium
 
