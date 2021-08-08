@@ -98,15 +98,33 @@ When a DNSSEC-secured domain is queried, every response to a DNS lookup will con
 
 ## DNS spoofing
 
+DNS spoofing is also known as DNS cache poisoning. In order to carry this out, an attacker can trick a DNS server into accepting a response from a non-legitimate DNS server. This can be achieved by means of [Man-In-The-Middle attacks](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) among others. Following the steps above, the attacker would insert itself between any of the steps. Typically, an attacker can insert itself into networks with low security levels such as those found in homes or small businesses. Once any computer in the network requests a domain name, the attacker intercepts the response, and replies with addresses of machines it controls. This can allow an attacker to perform additional Man-In-The-Middle attacks, for example, by spoofing the victim's bank website.
+
 # Extra knowledge
 
 The below points, while related to DNS, are not necessarily required knowledge for an experienced engineer, but it depends on your area.
 
-## LANs: mDNS Bonjour, and the .local TLD
+## LANs: mDNS, Bonjour, and the .local TLD
 
 [Bonjour](https://en.wikipedia.org/wiki/Bonjour_(software)), by Apple, is one of the most well-known zero-conf networking technologies.
 
-The [.local TLD](https://en.wikipedia.org/wiki/.local) is 
+The [.local TLD](https://en.wikipedia.org/wiki/.local) is a special-use domain name that cannot be served over the Internet.
 
-## Security: DNS amplification DDOS attack
+With the introduction of [RFC6762](https://datatracker.ietf.org/doc/html/rfc6762), Apple designed a protocol (called mDNS, and implemented as "Bonjour" in their computers) that allows systems on a network to exchange hostnames without the need for a centralised DNS infrastructure.
 
+An mDNS message is a [multicast](https://en.wikipedia.org/wiki/Multicast) UDP packet sent to:
+- IPv4 address 224.0.0.251 or IPv6 address ff02::fb
+- UDP port 5353
+- When using Ethernet frames, the standard IP multicast MAC address 01:00:5E:00:00:FB (for IPv4) or 33:33:00:00:00:FB (for IPv6)
+
+The questions and answers follow a similar structure to the DNS protocol.
+
+## Security: DNS amplification DoS attack
+
+A DNS amplification attack exploits implementation flaws in open DNS resolvers in order to send massive amounts of network traffic to a victim host. Because of the way TCP/IP is implemented, hosts use a queue to listen to incoming packets. The queue is decreased by one every time a server software responds to a connection. For example, when you try connecting via HTTP to a web server, the first packet is held by the OS, while it informs the web server that there's a new connection pending. Once the web server accepts it, the OS will remove that packet from the queue, and it's the web server that will reply to the client.
+
+Usually, requests are accepted within microseconds, but if the amount of traffic is higher than what the host's can process, then the queue will eventually get full and the OS will begin dropping packets, which prevents legitimate users from being able to connect (Denial-of-Service).
+
+In order to carry this out, the attacker sends UDP packets to DNS servers that have the origin IP changed to be the target victim's host. In these packets, the attacker specifies the DNS server to retrieve all the information it has, in order to generate the maximum amount of traffic. This packet is then sent to the target victim, which enters the queue.
+
+With only a single DNS server it is not likely this would pose a problem, but these attacks work by leveraging hundreds of DNS servers, and it quickly becomes a problem once the target victim receives hundreds of packets it didn't expect to receive. This is why it's called "DNS amplification", as the queries are much smaller than the responses from the DNS server. This allows an attacker with limited resources to carry out highly effective DoSes.
