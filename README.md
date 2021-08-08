@@ -10,6 +10,7 @@ System design notes.
 - [Explain object-oriented programming](easy/object-oriented_programming.md)
 - [Explain recursion in programming](easy/recursion.md)
 - [Explain the C programming language](easy/c.md)
+- [Explain the OSI model](easy/osi.md)
 
 ## Medium
 
@@ -18,6 +19,7 @@ System design notes.
 - [Describe the process from typing an address to finishing a page load](medium/web_browsers.md)
 - [Design a message queue](medium/mq.md)
 - [Design a scalable HTTP endpoint monitor](medium/monitor.md)
+- [Explain E-Mail](medium/email.md)
 
 ## Hard
 
