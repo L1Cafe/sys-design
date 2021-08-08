@@ -14,6 +14,8 @@ Originally, only seven TLDs existed. As the Internet expanded internationally, c
 
 ## DNSSEC
 
+When DNS was introduced, in ARPANET, the entire network was considered trustworthy. Once the Internet started expanding internationally, network engineers realised it was easy to carry out high-impact attacks against DNS such as DNS spoofing (more below). Because the Internet was growing at a fast pace and businesses as well as Internet users wanted a higher degree of security, DNSSEC was introduced to facilitate and standarise an additional layer of cryptographic authentication on top of traditional DNS. Note that DNS does not introduce encryption, it only provides integrity: that is, a DNS client can verify if the data was tampered with by a malicious third-party upon receiving a DNS request, but it doesn't protect this client from eavesdropping.
+
 ## DNS spoofing
 
 # Extra knowledge
