@@ -48,3 +48,4 @@ System design notes.
 ## Software
 
 - [Explain the differences between musl and the GNU Standard library](software/differences_musl_gnu.md)
+- [Explain the design principles behind Unix](software/unix.md)
