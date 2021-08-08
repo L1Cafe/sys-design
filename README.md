@@ -60,7 +60,8 @@ System design notes.
 
 ## OS - Linux and Unix
 
-- [Explain the design principles behind Unix](software/unix.md)
+- [Explain the design principles behind Unix](linux/unix.md)
+- [Explain the POSIX standard](linux/posix.md)
 - [Describe NFS](linux/nfs.md)
 - [Explain Btrfs](linux/btrfs.md)
 - [Explain ext4](linux/ext4.md)
