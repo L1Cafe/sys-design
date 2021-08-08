@@ -7,6 +7,8 @@ System design notes.
 
 - [Describe DNS](easy/dns.md)
 - [Describe HTTP](easy/http.md)
+- [Describe SSH](easy/ssh.md)
+- [Describe FTP](easy/ftp.md)
 - [Explain object-oriented programming](easy/object-oriented_programming.md)
 - [Explain recursion in programming](easy/recursion.md)
 - [Explain the C programming language](easy/c.md)
@@ -48,4 +50,15 @@ System design notes.
 ## Software
 
 - [Explain the differences between musl and the GNU Standard library](software/differences_musl_gnu.md)
+
+## OS - Windows
+
+- [Describe SMB](windows/smb.md)
+- [Explain DirectX](windows/directx.md)
+
+## OS - Linux and Unix
+
 - [Explain the design principles behind Unix](software/unix.md)
+- [Describe NFS](linux/nfs.md)
+- [Explain Btrfs](linux/btrfs.md)
+- [Explain ext4](linux/ext4.md)
