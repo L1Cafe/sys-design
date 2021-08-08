@@ -8,6 +8,10 @@ There exists a [set of Top-Level Domains](https://en.wikipedia.org/wiki/List_of_
 
 Originally, only seven TLDs existed. As the Internet expanded internationally, country-specific TLDs were introduced. Today, there are thousands of TLDs including company-specific ones such as [.aws](https://nic.aws) or [.deloitte](https://home.deloitte).
 
+There is a list of [root servers](https://www.internic.net/domain/named.root). This file is called "root hints", and lets DNS servers locate the servers that contain the full [root zone](http://www.internic.net/domain/root.zone).
+
+The root zone contains a list of TLDs and the IP address of the server that holds the registry for that TLD. Each TLD also signs the next TLD in alphabetical order, this can be seen with the `NSEC` and `RRSIG` entries on this file. This is called a [trust anchor](https://en.wikipedia.org/wiki/Domain_Name_System_Security_Extensions#Trust_anchors_and_authentication_chains). 
+
 ## How DNS queries work
 
 Most Internet users don't connect directly to root servers in order to retrieve records. Not only this would be slow, but also nearly impossible to scale at the size of the modern Internet. Instead, multiple layers of caching are used.
