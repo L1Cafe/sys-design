@@ -1,5 +1,5 @@
 # sys-design
-System design notes
+System design notes.
 
 # Core software and systems engineering concepts
 
