@@ -17,6 +17,7 @@ System design notes.
 ## Medium
 
 - [Design a database](medium/database.md)
+- [Describe DHCP](medium/dhcp.md)
 - [Describe the boot process of an x86 Linux machine](medium/linux_boot.md)
 - [Describe the process from typing an address to finishing a page load](medium/web_browsers.md)
 - [Design a message queue](medium/mq.md)
