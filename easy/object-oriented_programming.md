@@ -1,4 +1,4 @@
-# Explain Object Oriented Programming
+# Explain Object-Oriented Programming
 
 > Please note that, in Sciences such as Computer Science, things are never set in stone, and what this page describes as a fact can be implemented in a number of different ways that wouldn't match this description 100%. The idea of this exercise is to give a birds-eye view of the OOP paradigm, not to be an academic paper on Object-Oriented Programming.
 
