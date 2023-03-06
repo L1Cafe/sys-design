@@ -88,6 +88,16 @@ The answer contains the domain name used in the question, the type and class aga
 
 ## DNS record types
 
+- *A (Address)* Record: An A record maps a domain name to an IPv4 address. For example, an A record for example.com might map to the IP address 192.0.2.1.
+- *AAAA (IPv6 Address)* Record: An AAAA record maps a domain name to an IPv6 address. For example, an AAAA record for example.com might map to the IPv6 address 2001:db8:85a3:0:0:8a2e:370:7334.
+- *MX (Mail Exchange)* Record: An MX record specifies the mail servers that are responsible for accepting email messages for a domain. For example, an MX record for example.com might specify mail.example.com as the mail server.
+- *CNAME (Canonical Name)* Record: A CNAME record maps an alias or nickname for a domain to its canonical or primary name. For example, a CNAME record for www.example.com might map to example.com.
+- *TXT (Text)* Record: A TXT record can be used to store arbitrary text data associated with a domain. It is often used to provide additional information about a domain or to verify ownership of a domain.
+- *NS (Name Server)* Record: An NS record specifies the authoritative name servers for a domain. These name servers are responsible for providing DNS resolution for the domain.
+- *SOA (Start of Authority)* Record: An SOA record contains administrative information about a domain, such as the primary name server for the domain, the contact email address for the domain administrator, and other settings.
+- *PTR (Pointer)* Record: A PTR record maps an IP address to a domain name. PTR records are used for reverse DNS lookups, which are used to determine the domain name associated with an IP address.
+- *SRV (Service)* Record: An SRV record specifies the location of a service or protocol. It is used to provide information about servers that provide a particular service, such as a SIP (Session Initiation Protocol) server for voice-over-IP (VoIP) calls.
+
 ## DNSSEC
 
 When DNS was introduced, in ARPANET, the entire network was considered trustworthy. Once the Internet started expanding internationally, network engineers realised it was easy to carry out high-impact attacks against DNS such as DNS spoofing (more below). Because the Internet was growing at a fast pace and businesses as well as Internet users wanted a higher degree of security, DNSSEC was introduced to facilitate and standarise an additional layer of cryptographic authentication on top of traditional DNS.
